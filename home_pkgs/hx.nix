@@ -9,6 +9,9 @@
     pkgs.docker-compose-language-service
     pkgs.yamlfix
     pkgs.yaml-language-server
+    # dockerfile
+    pkgs.dockerfile-language-server
+    pkgs.hadolint
     # markdown
     pkgs.dprint
     pkgs.markdown-oxide
@@ -43,6 +46,11 @@
             command = "yamlfix";
             args = [ "-" ];
           };
+        }
+        {
+          name = "dockerfile";
+          auto-format = true;
+          formatter.command = "hadolint";
         }
         {
           name = "markdown";

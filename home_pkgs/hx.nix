@@ -5,6 +5,9 @@
     # bash
     pkgs.bash-language-server
     pkgs.shfmt
+    # markdown
+    pkgs.dprint
+    pkgs.markdown-oxide
     # nix
     pkgs.nil
     pkgs.nixd
@@ -30,6 +33,18 @@
           };
         }
         {
+          name = "markdown";
+          auto-format = true;
+          formatter = {
+            command = "dprint";
+            args = [
+              "fmt"
+              "--stdin"
+              "md"
+            ];
+          };
+        }
+        {
           name = "nix";
           auto-format = true;
           formatter = {
@@ -39,5 +54,18 @@
       ];
     };
 
+  };
+
+  # markdown: dprint config i.e. dprint init
+  home.file."dprint.json" = {
+    text = ''
+      {
+        "markdown": {},
+        "excludes": [],
+        "plugins": [
+          "https://plugins.dprint.dev/markdown-0.20.0.wasm"
+        ]
+      }
+    '';
   };
 }

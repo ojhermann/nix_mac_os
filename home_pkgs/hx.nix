@@ -21,6 +21,11 @@
     pkgs.nil
     pkgs.nixd
     pkgs.nixfmt
+    # python
+    pkgs.python313Packages.jedi-language-server
+    pkgs.python313Packages.python-lsp-server
+    pkgs.ruff
+    pkgs.ty
   ];
 
   programs.helix = {
@@ -79,6 +84,17 @@
           auto-format = true;
           formatter = {
             command = "nixfmt";
+          };
+        }
+        {
+          name = "python";
+          auto-format = true;
+          formatter = {
+            command = "ruff";
+            args = [
+              "format"
+              "-"
+            ];
           };
         }
       ];

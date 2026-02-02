@@ -13,7 +13,7 @@
       ls = "ls --color=auto";
       restart = "sudo shutdown -r now";
       shutdown = "sudo shutdown -h now";
-      switch = "sudo darwin-rebuld switch --flake ~/.config/nix";
+      switch = "sudo darwin-rebuild switch --flake ~/.config/nix";
       tree = "tree -C";
       zj = "zellij";
     };

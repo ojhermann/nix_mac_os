@@ -5,6 +5,10 @@
     # bash
     pkgs.bash-language-server
     pkgs.shfmt
+    # docker-compose
+    pkgs.docker-compose-language-service
+    pkgs.yamlfix
+    pkgs.yaml-language-server
     # markdown
     pkgs.dprint
     pkgs.markdown-oxide
@@ -30,6 +34,14 @@
           auto-format = true;
           formatter = {
             command = "shfmt";
+          };
+        }
+        {
+          name = "docker-compose";
+          auto-format = true;
+          formatter = {
+            command = "yamlfix";
+            args = [ "-" ];
           };
         }
         {

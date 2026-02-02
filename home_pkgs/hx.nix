@@ -12,6 +12,8 @@
     # dockerfile
     pkgs.dockerfile-language-server
     pkgs.hadolint
+    # kdl
+    pkgs.kdlfmt
     # markdown
     pkgs.dprint
     pkgs.markdown-oxide
@@ -51,6 +53,14 @@
           name = "dockerfile";
           auto-format = true;
           formatter.command = "hadolint";
+        }
+        {
+          name = "kdl";
+          auto-format = true;
+          formatter = {
+            command = "kdlfmt";
+            args = [ "format" ];
+          };
         }
         {
           name = "markdown";

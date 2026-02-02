@@ -1,11 +1,15 @@
 {
   config,
+  nixpkgs,
   pkgs,
   lib,
   ...
 }:
-
 {
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+
   imports = [
     ./home_pkgs/git.nix
     ./home_pkgs/hx.nix
@@ -13,6 +17,7 @@
   ];
 
   home.packages = [
+    pkgs.google-chrome
     pkgs.tree
   ];
 }

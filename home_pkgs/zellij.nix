@@ -13,7 +13,7 @@
 
     layouts = {
       python = ''
-                layout {
+          layout {
             tab name="code: python" {
                 pane size=1 borderless=true {
                     plugin location="zellij:tab-bar"
@@ -25,13 +25,13 @@
                             name "directory"
                             size "80%"
                             command "sh"
-                            args "-c" "~/.dotfiles/scripts/watch_dir_python.sh"
+                            args "-c" "watch-dir-python.sh"
                         }
                         pane {
                             name "git"
                             size "20%"
                             command "sh"
-                            args "-c" "~/.dotfiles/scripts/watch_git.sh"
+                            args "-c" "watch-git"
                         }
                     }
                     pane split_direction="vertical" {
@@ -69,13 +69,13 @@
                             name "directory"
                             size "80%"
                             command "sh"
-                            args "-c" "~/.dotfiles/scripts/watch_dir_rust.sh"
+                            args "-c" "watch-dir-rust"
                         }
                         pane {
                             name "git"
                             size "20%"
                             command "sh"
-                            args "-c" "~/.dotfiles/scripts/watch_git.sh"
+                            args "-c" "watch-git"
                         }
                     }
                     pane split_direction="vertical" {

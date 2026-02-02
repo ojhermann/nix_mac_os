@@ -29,6 +29,9 @@
     # rust
     pkgs.lldb
     pkgs.rust-analyzer
+    # toml
+    pkgs.taplo
+    pkgs.tombi
   ];
 
   programs.helix = {
@@ -106,6 +109,17 @@
           formatter = {
             command = "cargo";
             args = [ "fmt" ];
+          };
+        }
+        {
+          name = "toml";
+          auto-format = true;
+          formatter = {
+            command = "taplo";
+            args = [
+              "fmt"
+              "-"
+            ];
           };
         }
       ];

@@ -17,6 +17,11 @@
     ./home_pkgs/zsh.nix
   ];
 
+  home.sessionVariables = {
+    EDITOR = "hx";
+    VISUAL = "hx";
+  };
+
   home.packages = [
     # google-chrome
     pkgs.google-chrome

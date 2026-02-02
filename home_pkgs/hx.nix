@@ -1,16 +1,19 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 {
   home.packages = [
     pkgs.helix
+    # bash
+    pkgs.bash-language-server
+    pkgs.shfmt
     # nix
     pkgs.nil
     pkgs.nixd
     pkgs.nixfmt
   ];
-  
+
   programs.helix = {
     enable = true;
-    
+
     settings = {
       theme = "default";
       editor.file-picker.hidden = false;
@@ -19,16 +22,22 @@
 
     languages = {
       language = [
-      {
-        name = "nix";
-        auto-format = true;
-        formatter = {
-          command = "nixfmt";
-        };
-      }
+        {
+          name = "bash";
+          auto-format = true;
+          formatter = {
+            command = "shfmt";
+          };
+        }
+        {
+          name = "nix";
+          auto-format = true;
+          formatter = {
+            command = "nixfmt";
+          };
+        }
       ];
     };
-  
+
   };
 }
-

@@ -26,6 +26,9 @@
     pkgs.python313Packages.python-lsp-server
     pkgs.ruff
     pkgs.ty
+    # rust
+    pkgs.lldb
+    pkgs.rust-analyzer
   ];
 
   programs.helix = {
@@ -95,6 +98,14 @@
               "format"
               "-"
             ];
+          };
+        }
+        {
+          name = "rust";
+          auto-format = true;
+          formatter = {
+            command = "cargo";
+            args = [ "fmt" ];
           };
         }
       ];

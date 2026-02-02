@@ -23,6 +23,8 @@
   };
 
   home.packages = [
+    # aws-cli
+    pkgs.awscli2
     # google-chrome
     pkgs.google-chrome
     # rust

@@ -7,6 +7,13 @@
   programs.zsh = {
     enable = true;
 
+    enableCompletion = true;
+
+    completionInit = ''
+      autoload -Uz compinit && compinit
+      complete -C '${pkgs.awscli2}/bin/aws_completer' aws
+    '';
+
     initContent = ''
       prompt off
       PS1="%F{cyan}%d %# %f"

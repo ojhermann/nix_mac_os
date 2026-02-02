@@ -18,6 +18,9 @@
 
   home.packages = [
     pkgs.google-chrome
+    # rust
+    pkgs.cargo
+    pkgs.rustc
     pkgs.tree
   ];
 }

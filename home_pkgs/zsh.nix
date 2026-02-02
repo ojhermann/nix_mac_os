@@ -7,6 +7,12 @@
   programs.zsh = {
     enable = true;
 
+    initContent = ''
+      prompt off
+      PS1="%F{cyan}%d %# %f"
+      source /Users/otto/.config/nix/home_pkgs/zsh_scripts/rprompt.sh
+    '';
+
     shellAliases = {
       grep = "grep -i --color=auto";
       gs = "git status --short";

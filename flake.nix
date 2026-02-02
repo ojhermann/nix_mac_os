@@ -57,6 +57,37 @@
                     home.stateVersion = "25.11";
                     imports = [ ./home.nix ];
                   };
+                # security
+                security.pam.services.sudo_local.touchIdAuth = true;
+                # system
+                system.primaryUser = username;
+                system.defaults = {
+                  dock = {
+                    autohide = true;
+                    mru-spaces = false;
+                  };
+                  finder = {
+                    AppleShowAllExtensions = true;
+                  };
+                  iCal."first day of week" = "Monday";
+                  loginwindow = {
+                    LoginwindowText = "eat a dick";
+                  };
+                  menuExtraClock = {
+                    Show24Hour = true;
+                    # Optional: Display seconds as well
+                    ShowSeconds = true;
+                  };
+                  NSGlobalDomain = {
+                    AppleICUForce24HourTime = true;
+                    AppleInterfaceStyle = "Dark";
+                    AppleMeasurementUnits = "Centimeters";
+                    AppleMetricUnits = 1;
+                    AppleShowAllFiles = true;
+                    AppleTemperatureUnit = "Celsius";
+                    NSAutomaticCapitalizationEnabled = false;
+                  };
+                };
               }
             )
           ];

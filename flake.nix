@@ -26,31 +26,19 @@
   outputs =
     { self, ... }@inputs:
     let
-      # The values for `username` and `system` supplied here are used to construct the hostname
-      # for your system, of the form `${username}-${system}`. Set these values to what you'd like
-      # the output of `scutil --get LocalHostName` to be.
-
-      # Your system username
       username = "otto";
-
-      # Your system type (Apple Silicon)
       system = "aarch64-darwin";
     in
     {
       # nix-darwin configuration output
       darwinConfigurations = {
-	"ottos-MacBook-Air" = inputs.nix-darwin.lib.darwinSystem {
-	  system = "${system}";
-	  modules = [
-            # Add the determinate nix-darwin module
+        "ottos-MacBook-Air" = inputs.nix-darwin.lib.darwinSystem {
+          system = "${system}";
+          modules = [
             inputs.determinate.darwinModules.default
-            # Apply the modules output by this flake
             self.darwinModules.base
             self.darwinModules.determinateNixConfig
-            # Apply any other imported modules here
-	    inputs.home-manager.darwinModules.home-manager
-            # In addition to adding modules in the style above, you can also
-            # add modules inline like this. Delete this if unnecessary.
+            inputs.home-manager.darwinModules.home-manager
             (
               {
                 config,
@@ -59,19 +47,20 @@
                 ...
               }:
               {
-                # Inline nix-darwin configuration
-		nix.enable = false;
-		# home-manager
-		home-manager.users.${username} = { pkgs, ... }: 
-		{
-		  home.username = "${username}";
-		  home.stateVersion = "25.11";
-		  imports = [ ./home.nix ];
-		};
+                # https://docs.determinate.systems/guides/nix-darwin/
+                nix.enable = false;
+                # home-manager
+                home-manager.users.${username} =
+                  { pkgs, ... }:
+                  {
+                    home.username = "${username}";
+                    home.stateVersion = "25.11";
+                    imports = [ ./home.nix ];
+                  };
               }
             )
           ];
-	};
+        };
       };
 
       # nix-darwin module outputs
@@ -90,7 +79,7 @@
 
             users.users.${username} = {
               name = username;
-	      home = "/Users/${username}";
+              home = "/Users/${username}";
               # See the reference docs for more on user config:
               # https://nix-darwin.github.io/nix-darwin/manual/#opt-users.users
             };

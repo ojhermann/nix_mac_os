@@ -13,6 +13,7 @@
   imports = [
     ./home_pkgs/git.nix
     ./home_pkgs/hx.nix
+    ./home_pkgs/zellij.nix
     ./home_pkgs/zsh.nix
   ];
 

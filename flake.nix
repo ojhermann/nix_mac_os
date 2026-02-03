@@ -92,12 +92,7 @@
       darwinModules = {
         # Some base configuration
         base =
-          {
-            config,
-            pkgs,
-            lib,
-            ...
-          }:
+          { ... }:
           {
             # Required for nix-darwin to work
             system.stateVersion = 1;

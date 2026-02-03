@@ -22,9 +22,15 @@
     VISUAL = "hx";
   };
 
+  home.activation.setDefaultBrowser = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    ${pkgs.defaultbrowser}/bin/defaultbrowser chrome
+  '';
+
   home.packages = [
     # aws-cli
     pkgs.awscli2
+    # defaultbrowser
+    pkgs.defaultbrowser
     # google-chrome
     pkgs.google-chrome
     # rust

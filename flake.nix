@@ -40,18 +40,13 @@
             self.darwinModules.determinateNixConfig
             inputs.home-manager.darwinModules.home-manager
             (
-              {
-                config,
-                pkgs,
-                lib,
-                ...
-              }:
+              { ... }:
               {
                 # https://docs.determinate.systems/guides/nix-darwin/
                 nix.enable = false;
                 # home-manager
                 home-manager.users.${username} =
-                  { pkgs, ... }:
+                  { ... }:
                   {
                     home.username = "${username}";
                     home.stateVersion = "25.11";

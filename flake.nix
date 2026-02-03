@@ -71,11 +71,10 @@
                   };
                   iCal."first day of week" = "Monday";
                   loginwindow = {
-                    LoginwindowText = "eat a dick";
+                    LoginwindowText = "By entering, you agree that Shakes the Clown is the best film ever made";
                   };
                   menuExtraClock = {
                     Show24Hour = true;
-                    # Optional: Display seconds as well
                     ShowSeconds = true;
                   };
                   NSGlobalDomain = {

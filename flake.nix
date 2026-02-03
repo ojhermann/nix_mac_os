@@ -110,12 +110,7 @@
 
         # Determinate Nix configuration
         determinateNixConfig =
-          {
-            config,
-            pkgs,
-            lib,
-            ...
-          }:
+          { ... }:
           {
             determinateNix = {
               # Enable Determinate to handle your Nix configuration

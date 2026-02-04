@@ -29,6 +29,8 @@
     pkgs.awscli2
     # defaultbrowser
     pkgs.defaultbrowser
+    # protonmail
+    pkgs.protonmail-desktop
     # firefox
     pkgs.firefox
     # rust

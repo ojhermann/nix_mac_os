@@ -21,7 +21,7 @@
   };
 
   home.activation.setDefaultBrowser = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    ${pkgs.defaultbrowser}/bin/defaultbrowser chrome
+    ${pkgs.defaultbrowser}/bin/defaultbrowser firefox
   '';
 
   home.packages = [
@@ -29,14 +29,16 @@
     pkgs.awscli2
     # defaultbrowser
     pkgs.defaultbrowser
-    # google-chrome
-    pkgs.google-chrome
+    # firefox
+    pkgs.firefox
     # rust
     pkgs.bacon
     pkgs.cargo
     pkgs.rustc
     # tree
     pkgs.tree
+    # typos
+    pkgs.typos
     # scripts
     (pkgs.writeShellScriptBin "watch-dir-python" ''
       #!/bin/zsh

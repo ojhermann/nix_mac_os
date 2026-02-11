@@ -14,6 +14,7 @@
     pkgs.hadolint
     # haskell
     pkgs.haskell-language-server
+    pkgs.ormolu
     # kdl
     pkgs.kdlfmt
     # markdown
@@ -66,6 +67,13 @@
           name = "dockerfile";
           auto-format = true;
           formatter.command = "hadolint";
+        }
+        {
+          name = "haskell";
+          auto-format = true;
+          formatter = {
+            command = "ormolu";
+          };
         }
         {
           name = "kdl";

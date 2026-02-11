@@ -12,6 +12,8 @@
     # dockerfile
     pkgs.dockerfile-language-server
     pkgs.hadolint
+    # haskell
+    pkgs.haskell-language-server
     # kdl
     pkgs.kdlfmt
     # markdown

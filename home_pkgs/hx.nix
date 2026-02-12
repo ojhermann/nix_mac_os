@@ -103,6 +103,17 @@
           };
         }
         {
+          name = "pkl";
+          auto-format = true;
+          formatter = {
+            command = "pkl";
+            args = [
+              "format"
+              "-w"
+            ];
+          };
+        }
+        {
           name = "python";
           auto-format = true;
           formatter = {

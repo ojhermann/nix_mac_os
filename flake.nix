@@ -38,6 +38,8 @@
     {
       homebrew = {
         enable = true;
+        onActivation.autoUpdate = true;
+        onActivation.upgrade = true;
         brews = [
           "pkl" # The main Pkl CLI
           "pkl-lsp" # Optional: Language Server for Pkl

@@ -45,6 +45,8 @@
                 # https://docs.determinate.systems/guides/nix-darwin/
                 nix.enable = false;
                 # home-manager
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
                 home-manager.users.${username} =
                   { ... }:
                   {

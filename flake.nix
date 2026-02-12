@@ -20,6 +20,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+    };
+
   };
 
   # Flake outputs
@@ -45,7 +50,6 @@
                 # https://docs.determinate.systems/guides/nix-darwin/
                 nix.enable = false;
                 # home-manager
-                home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.users.${username} =
                   { ... }:

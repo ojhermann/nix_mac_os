@@ -38,6 +38,7 @@
     {
       homebrew = {
         enable = true;
+        global.brewfile = true;
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
         brews = [
@@ -68,6 +69,10 @@
               {
                 # https://docs.determinate.systems/guides/nix-darwin/
                 nix.enable = false;
+                # homebrew
+                environment.shellInit = ''
+                  eval "$(/opt/homebrew/bin/brew shellenv)"
+                '';
                 # home-manager
                 home-manager.useUserPackages = true;
                 home-manager.users.${username} =

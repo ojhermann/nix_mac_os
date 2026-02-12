@@ -23,6 +23,7 @@
 
     nix-homebrew = {
       url = "github:zhaofengli/nix-homebrew";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
@@ -56,6 +57,7 @@
                 enable = true;
                 enableRosetta = true;
                 user = username;
+                autoMigrate = true;
               };
             }
             inputs.home-manager.darwinModules.home-manager

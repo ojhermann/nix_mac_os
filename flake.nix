@@ -35,6 +35,13 @@
       system = "aarch64-darwin";
     in
     {
+      homebrew = {
+        enable = true;
+        brews = [
+          "pkl" # The main Pkl CLI
+          "pkl-lsp" # Optional: Language Server for Pkl
+        ];
+      };
       # nix-darwin configuration output
       darwinConfigurations = {
         "ottos-MacBook-Air" = inputs.nix-darwin.lib.darwinSystem {
@@ -43,6 +50,14 @@
             inputs.determinate.darwinModules.default
             self.darwinModules.base
             self.darwinModules.determinateNixConfig
+            inputs.nix-homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {
+                enable = true;
+                enableRosetta = true;
+                user = username;
+              };
+            }
             inputs.home-manager.darwinModules.home-manager
             (
               { ... }:

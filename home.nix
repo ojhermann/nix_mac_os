@@ -9,6 +9,7 @@
   };
 
   imports = [
+    ./home_pkgs/alacritty.nix
     ./home_pkgs/git.nix
     ./home_pkgs/hx.nix
     ./home_pkgs/zellij.nix
